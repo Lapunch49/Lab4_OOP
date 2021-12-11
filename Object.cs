@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Drawing;
 
 namespace Lab4_OOP
 {
     public class Object
     {
-
+        public virtual void Draw() { }
     }
     public class CCircle : Object
     {
@@ -22,9 +23,11 @@ namespace Lab4_OOP
             this.y = y;
             r = 30;
         }
-        public void Draw()
+        public override void Draw()
         {
-
+            Graphics g = Graphics.FromImage(Form1.bmp);
+            g.FillEllipse(Globals.blueBrush, x, y, 20, 20);
+            
         }
     };
 }

@@ -21,7 +21,7 @@ namespace Lab4_OOP
             k = 0;
         }
 
-        void add(Object new_el)
+        public void add(Object new_el)
         {
             if (k < n)
             {
