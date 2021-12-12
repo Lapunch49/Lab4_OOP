@@ -6,7 +6,7 @@ namespace Lab4_OOP
 {
     public class Storage
     {
-        private int n, k;//количество элементов
+        private int n, k;
         public Object[] st;
         public Storage()
         {
