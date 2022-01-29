@@ -32,7 +32,7 @@ namespace Lab4_OOP
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             int k = -1;
-            //int flag = 0;
+            int flag = 0;
             //проверяем попадание курсора по какому-либо кругу
             for (int i = 0; i < Globals.arr_circles.get_count() - 1; ++i)
                 if (Globals.arr_circles.st[i].mouseClick_on_Object(e.X,e.Y))
@@ -47,21 +47,21 @@ namespace Lab4_OOP
                     Globals.arr_circles.st[k].change_highlight();
                 }
                 //проверяем были ли уже выделены какие-то круги
-                //for (int i = 0; i < Globals.arr_circles.get_count() - 1; ++i)
-                //    if (Globals.arr_circles.st[i].get_highlighted())
-                //        flag = 1;//какие-то круг/круги уже выделены
+                for (int i = 0; i < Globals.arr_circles.get_count() - 1; ++i)
+                    if (Globals.arr_circles.st[i].get_highlighted())
+                        flag = 1;//какие-то круг/круги уже выделены
 
-                //if (flag == 1)//круги уже выделены
+                if (flag == 1)//круги уже выделены
 
-                //if (ctrlPress)//если при этом зажата ctrl - выделяем и этот круг
-                //{
-                //    Globals.arr_circles.st[k].highlight();
-                //    Globals.arr_circles.st[k].change_highlight();
-                //}
-                //else //если ctrl не зажата - убираем все выделения у кругов
-                if (!ctrlPress)
-                //if (System.Windows.Input.Keyboard.IsKeyDown(System.Windows.Input.Key.Ctrl) == true)
-                {
+                    if (ctrlPress)//если при этом зажата ctrl - выделяем и этот круг
+                    {
+                        Globals.arr_circles.st[k].highlight();
+                        Globals.arr_circles.st[k].change_highlight();
+                    }
+                    else //если ctrl не зажата - убираем все выделения у кругов
+                    if (!ctrlPress)
+                        //if (System.Windows.Input.Keyboard.IsKeyDown(System.Windows.Input.Key.Ctrl) == true)
+                        {
                     for (int i = 0; i < Globals.arr_circles.get_count(); ++i)
                     {
                         if (Globals.arr_circles.st[i].get_highlighted())
@@ -93,12 +93,7 @@ namespace Lab4_OOP
             pictureBox1.Image = bmp;
         }
 
-        private void Form1_KeyDown(object sender, KeyPressEventArgs e)
-        {
-
-        }
     }
-
 
     public static class Globals
     {
