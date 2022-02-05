@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace Lab4_OOP
 {
     public class Object
     {
-        public virtual void draw() { }
+        public virtual void draw(PaintEventArgs e) { }
         public virtual void highlight() { }
         public virtual bool mouseClick_on_Object(int x_, int y_) { return false; }
         public virtual void change_highlight() { }
@@ -29,28 +30,19 @@ namespace Lab4_OOP
             this.y = y;
             r = 30;
         }
-        public override void draw()
+        public override void draw(PaintEventArgs e)
         {
-            Graphics g = Graphics.FromImage(Form1.bmp);
+            //Graphics g = Graphics.FromImage(Form1.bmp);
             if (highlighted == false)
-                g.FillEllipse(Globals.blueBrush, x - r, y - r, r * 2, r * 2);
-            else g.FillEllipse(Globals.redBrush, x - r, y - r, r * 2, r * 2);
+                e.Graphics.FillEllipse(Brush.violBrush, x - r, y - r, r * 2, r * 2);
+            else e.Graphics.FillEllipse(Brush.pinkBrush, x - r, y - r, r * 2, r * 2);
         }
-
-        public override void highlight()
-        {
-            Graphics g = Graphics.FromImage(Form1.bmp);
-            g.FillEllipse(Globals.redBrush, x - r, y - r, r * 2, r * 2);
-            highlighted = true;
-        }
-
         public override bool mouseClick_on_Object(int x_, int y_)
         {
             if ((x_ - x)* (x_ - x)+ (y_ - y)* (y_ - y) <= r * r)
                 return true;
             else return false;
         }
-
         public override void change_highlight()
         {
             if (highlighted)
@@ -61,6 +53,5 @@ namespace Lab4_OOP
         {
             return highlighted;
         }
-        
     };
 }

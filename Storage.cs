@@ -12,7 +12,7 @@ namespace Lab4_OOP
         {
             n = 1;
             st = new Object[n];
-            st[0] = default; // или default
+            st[0] = null; // или default
             k = 0;
         }
         public Storage(int size)
@@ -21,7 +21,7 @@ namespace Lab4_OOP
             st = new Object[n];
             k = 0;
             for (int i = 0; i < n; ++i)
-                st[i] = default;
+                st[i] = null;
         }
         public void add(Object new_el)
         {
@@ -38,8 +38,8 @@ namespace Lab4_OOP
                     st_[i] = st[i];
                 st_[k] = new_el;
                 k = k + 1;
-                for (int i = 0; i < n; ++i)
-                    st_[i] = default;
+                for (int i = k; i < n; ++i)
+                    st_[i] = null;
                 st = st_;
             }
         }
@@ -48,7 +48,7 @@ namespace Lab4_OOP
             for (int i = ind; i < k - 1; ++i)
                 st[i] = st[i + 1];
             k = k - 1;
-            st[k] = default;
+            st[k] = null;
         }
         public Object get_el(int ind)
         {
