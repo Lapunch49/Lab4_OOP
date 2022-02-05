@@ -99,7 +99,8 @@ namespace Lab4_OOP
     {
         //public static Pen circle = new Pen(Color.Blue, 20);
         //public static Pen line = new Pen(Color.Red,10);
-        public static SolidBrush blueBrush = new SolidBrush(Color.Blue);
+        //public static SolidBrush blueBrush = new SolidBrush(Color.Blue);
+        public static SolidBrush blueBrush = new SolidBrush(Color.FromArgb(207, 126, 220));
         public static SolidBrush redBrush = new SolidBrush(Color.Red);
         public static Storage arr_circles = new Storage();
     }

@@ -32,7 +32,9 @@ namespace Lab4_OOP
         public override void draw()
         {
             Graphics g = Graphics.FromImage(Form1.bmp);
-            g.FillEllipse(Globals.blueBrush, x - r, y - r, r*2, r*2);
+            if (highlighted == false)
+                g.FillEllipse(Globals.blueBrush, x - r, y - r, r * 2, r * 2);
+            else g.FillEllipse(Globals.redBrush, x - r, y - r, r * 2, r * 2);
         }
 
         public override void highlight()
